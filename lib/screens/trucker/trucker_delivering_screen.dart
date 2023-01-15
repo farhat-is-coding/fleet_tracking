@@ -248,9 +248,11 @@ class _TruckerDeliveryScreenState extends State<TruckerDeliveryScreen> {
       if (data!["status"] == "inactive") {
         timer.cancel();
         log("timer has been cancelled");
+      }else{
+        FirestoreService().updateLocationFireStore(
+            currentLocation!.latitude!, currentLocation!.longitude!);
       }
-      FirestoreService().updateLocationFireStore(
-          currentLocation!.latitude!, currentLocation!.longitude!);
+
     });
   }
 

@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fleet_tracker/services/models.dart';
 import 'auth.dart';
