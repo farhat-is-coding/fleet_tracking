@@ -43,7 +43,8 @@ class _TruckerDeliveryScreenState extends State<TruckerDeliveryScreen> {
   }
 
   Future<void> getInitials() async {
-    List<GeoPoint> geopoints = await FirestoreService().getInitials(email: AuthService().user!.email!);
+    List<GeoPoint> geopoints =
+        await FirestoreService().getInitials(email: AuthService().user!.email!);
     GeoPoint? start = geopoints[0];
     GeoPoint? end = geopoints[1];
 
@@ -183,16 +184,20 @@ class _TruckerDeliveryScreenState extends State<TruckerDeliveryScreen> {
 
   _getPolyline(GeoPoint s, GeoPoint e) async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-      googleAPiKey,
-      PointLatLng(s.latitude, s.longitude),
-      PointLatLng(e.latitude, e.longitude),
-      travelMode: TravelMode.driving,
+      request: PolylineRequest(
+        origin: PointLatLng(s.latitude, s.longitude),
+        destination: PointLatLng(e.latitude, e.longitude),
+        mode: TravelMode.driving, // Required 'mode' parameter
+      ),
+      googleApiKey: googleAPiKey,
     );
+
     if (result.points.isNotEmpty) {
-      result.points.forEach((PointLatLng point) {
+      for (PointLatLng point in result.points) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
+      }
     }
+
     _addPolyLine();
   }
 
@@ -248,11 +253,10 @@ class _TruckerDeliveryScreenState extends State<TruckerDeliveryScreen> {
       if (data!["status"] == "inactive") {
         timer.cancel();
         log("timer has been cancelled");
-      }else{
+      } else {
         FirestoreService().updateLocationFireStore(
             currentLocation!.latitude!, currentLocation!.longitude!);
       }
-
     });
   }
 

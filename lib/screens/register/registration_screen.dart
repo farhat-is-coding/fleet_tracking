@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fleet_tracker/services/auth.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 import 'package:fleet_tracker/shared/snackbars.dart';
 import 'package:fleet_tracker/services/firestore.dart';
@@ -31,9 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Theme.of(context).colorScheme.secondary,
       ),
       backgroundColor: Colors.white,
-      body: ModalProgressHUD(
-        inAsyncCall: saving,
-        child: SafeArea(
+      body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Form(
@@ -120,8 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 
   TextFormField passwordTextField() {

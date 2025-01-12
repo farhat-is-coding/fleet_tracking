@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fleet_tracker/firebase_options.dart';
 import 'package:fleet_tracker/screens/register/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fleet_tracker/screens/admin/admin_setting.dart';
@@ -19,7 +20,9 @@ import 'constants.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
 }
 

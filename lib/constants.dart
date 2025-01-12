@@ -12,8 +12,7 @@ var kThemeData = ThemeData(
   primaryColor: appColor,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      elevation: 0,
-      primary: appColor,
+      elevation: 0, backgroundColor: appColor,
       shape: const StadiumBorder(),
       maximumSize: const Size(double.infinity, 56),
       minimumSize: const Size(double.infinity, 56),

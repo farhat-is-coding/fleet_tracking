@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:fleet_tracker/services/auth.dart';
 import 'package:fleet_tracker/services/firestore.dart';
 import 'package:fleet_tracker/shared/snackbars.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class AdminLogin extends StatefulWidget {
   @override
@@ -22,9 +21,7 @@ class _AdminLoginState extends State<AdminLogin> {
 
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
-      inAsyncCall: saving,
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
@@ -133,7 +130,6 @@ class _AdminLoginState extends State<AdminLogin> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

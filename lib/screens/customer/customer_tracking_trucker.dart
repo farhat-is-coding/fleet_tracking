@@ -13,7 +13,7 @@ import '../../services/firestore.dart';
 
 class DriverLocation extends StatefulWidget {
   String driverEmail, status;
-  DriverLocation({required this.driverEmail, this.status="active"});
+  DriverLocation({required this.driverEmail, this.status = "active"});
 
   @override
   _DriverLocationState createState() {
@@ -22,8 +22,6 @@ class DriverLocation extends StatefulWidget {
 }
 
 class _DriverLocationState extends State<DriverLocation> {
-
-
   late GoogleMapController mapController;
 
   double _originLatitude = 33.6844, _originLongitude = 73.0479;
@@ -47,7 +45,9 @@ class _DriverLocationState extends State<DriverLocation> {
   }
 
   Future<void> getInitials() async {
-    List<GeoPoint> geopoints = await FirestoreService().getInitials(email: widget.driverEmail,);
+    List<GeoPoint> geopoints = await FirestoreService().getInitials(
+      email: widget.driverEmail,
+    );
     GeoPoint? start = geopoints[0];
     GeoPoint? end = geopoints[1];
     GeoPoint? current = geopoints[2];
@@ -180,15 +180,18 @@ class _DriverLocationState extends State<DriverLocation> {
 
   _getPolyline(GeoPoint s, GeoPoint e) async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-      googleAPiKey,
-      PointLatLng(s.latitude, s.longitude),
-      PointLatLng(e.latitude, e.longitude),
-      travelMode: TravelMode.driving,
+      request: PolylineRequest(
+        origin: PointLatLng(s.latitude, s.longitude),
+        destination: PointLatLng(e.latitude, e.longitude),
+        mode: TravelMode.driving, // Required 'mode' parameter
+      ),
+      googleApiKey: googleAPiKey, // Ensure your API key is valid
     );
+
     if (result.points.isNotEmpty) {
-      result.points.forEach((PointLatLng point) {
+      for (PointLatLng point in result.points) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
+      }
     }
     _addPolyLine();
   }

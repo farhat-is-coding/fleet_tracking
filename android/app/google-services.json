@@ -1,65 +1,26 @@
 {
   "project_info": {
-    "project_number": "129440687245",
-    "project_id": "flash-chat-f5af6",
-    "storage_bucket": "flash-chat-f5af6.appspot.com"
+    "project_number": "684476869658",
+    "project_id": "tracker-blitz",
+    "storage_bucket": "tracker-blitz.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:129440687245:android:245c2ad6197aa577572ec4",
+        "mobilesdk_app_id": "1:684476869658:android:ad20028f154d9200c4f5a3",
         "android_client_info": {
-          "package_name": "com.example.flash_chat"
+          "package_name": "com.blitz_track.app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "129440687245-d546at3jb7vo6eg5v8v466ap89s3t9qf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD2Fb911TQ3s_zTCZHaZYhKbSb4z3eKEIo"
+          "current_key": "AIzaSyCycFh3Hy2f8xeY3w9eNgSora969ckb4Qc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "129440687245-d546at3jb7vo6eg5v8v466ap89s3t9qf.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:129440687245:android:be3a38a95d0e4a23572ec4",
-        "android_client_info": {
-          "package_name": "com.example.google_mao"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "129440687245-d546at3jb7vo6eg5v8v466ap89s3t9qf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD2Fb911TQ3s_zTCZHaZYhKbSb4z3eKEIo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "129440687245-d546at3jb7vo6eg5v8v466ap89s3t9qf.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
